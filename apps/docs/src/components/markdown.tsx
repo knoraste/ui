@@ -1,7 +1,11 @@
 'use client'
 
+import styles from './markdown.module.css'
 import { Typography } from '@kaynora/ui'
 import { NavLink } from './navlink'
+
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 const slugify = (input: string) => {
   return input
@@ -121,23 +125,29 @@ const A = ({ children, href }: { children: React.ReactElement | React.ReactEleme
 
 const CodeBlock = ({ children, className }: { children: string; className?: string }) => {
   const isBlock = !!className
+  const language = className?.replace('language-', '')
 
   if (isBlock) {
     return (
-      <div
-        style={{
-          padding: '10px',
-          backgroundColor: 'var(--gray-1)',
-          borderRadius: 'var(--radius)',
+      <SyntaxHighlighter
+        className={styles['highlighter']}
+        language={language}
+        style={vscDarkPlus}
+        customStyle={{
+          backgroundColor: 'var(--backgroundd)',
           border: '1px solid var(--gray-2)',
-          margin: '20px 0',
-          overflowX: 'auto',
+          borderRadius: 'var(--radius)',
+          padding: '15px',
+          fontSize: '50%',
+        }}
+        codeTagProps={{
+          style: {
+            fontFamily: 'IBM Plex Mono',
+          }
         }}
       >
-        <pre>
-          <code className={className}>{children}</code>
-        </pre>
-      </div>
+        {children}
+      </SyntaxHighlighter>
     )
   }
 

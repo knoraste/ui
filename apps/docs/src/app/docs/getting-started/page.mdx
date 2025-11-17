@@ -1,5 +1,51 @@
 import { Section } from '@/components/section'
+import { P } from '@/components/paragraph'
 
 <Section>
 # Getting started
+
+## Installation
+
+### 1. Install the library
+
+<P>
+Use the following command or its equivalent for your package manager to install @kaynora/ui.
+</P>
+
+```shell
+npm install @kaynora/ui
+```
+
+
+### 2. Import base styles
+
+<P>
+The index.css file will set baseline styles and should be imported in the root of your application.
+</P>
+
+```jsx
+import '@kaynora/ui/dist/index.css'
+```
+
+
+### 3. Set the application theme
+
+<P>
+The `data-theme` attribute must be set on the document root in order for the library's 
+styling to work. Accepted values for this attribute are `light` and `dark`.
+</P>
+
+```jsx
+export default function () {
+  return (
+    <html data-theme='light'>
+      <body>
+        <App />
+      </body>
+    </html>
+  )
+}
+```
+
+
 </Section>

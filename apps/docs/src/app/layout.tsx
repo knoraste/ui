@@ -1,4 +1,11 @@
 import type { Metadata } from 'next'
+import { IBM_Plex_Mono } from 'next/font/google'
+ 
+const ibm = IBM_Plex_Mono({
+  weight: '400',
+  subsets: ['latin'],
+})
+ 
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -11,7 +18,7 @@ export default function RootLayout({
   children: React.ReactElement | React.ReactElement[]
 }>) {
   return (
-    <html lang='en' data-theme='dark'>
+    <html lang='en' data-theme='dark' className={ibm.className}>
       <body>
         {children}
       </body>

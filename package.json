@@ -4,5 +4,8 @@
   "workspaces": [
     "packages/*",
     "apps/*"
-  ]
+  ],
+  "dependencies": {
+    "@types/react-syntax-highlighter": "^15.5.13"
+  }
 }
