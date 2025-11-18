@@ -5,7 +5,7 @@ import { Typography } from '@kaynora/ui'
 import { NavLink } from './navlink'
 
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 const slugify = (input: string) => {
   return input
@@ -52,6 +52,7 @@ const H2 = ({ children }: { children: string }) => {
         type='h2'
         size='s'
         weight='400'
+        color='primary'
         internal={{
           root: { id: slug }
         }}
@@ -84,6 +85,7 @@ const H3 = ({ children }: { children: string }) => {
         type='h3'
         size='xs'
         weight='500'
+        color='primary'
         internal={{
           root: { id: slug }
         }}
@@ -132,9 +134,10 @@ const CodeBlock = ({ children, className }: { children: string; className?: stri
       <SyntaxHighlighter
         className={styles['highlighter']}
         language={language}
-        style={vscDarkPlus}
+        style={oneDark}
         customStyle={{
-          backgroundColor: 'var(--backgroundd)',
+          margin: '20px 0',
+          backgroundColor: 'var(--background)',
           border: '1px solid var(--gray-2)',
           borderRadius: 'var(--radius)',
           padding: '15px',
@@ -153,10 +156,11 @@ const CodeBlock = ({ children, className }: { children: string; className?: stri
 
   return (
     <code style={{
-      padding: '2px 4px',
-      backgroundColor: 'var(--gray-1)',
-      borderRadius: 'var(--radius)',
-      border: '1px solid var(--gray-2)',
+      padding: '0 4px',
+      fontFamily: 'IBM Plex Mono',
+      fontSize: '0.85rem',
+      fontWeight: '400',
+      color: 'var(--accent)',
     }}>{children}</code>
   )
 }

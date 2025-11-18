@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { IBM_Plex_Mono } from 'next/font/google'
  
-const ibm = IBM_Plex_Mono({
+const mono = IBM_Plex_Mono({
   weight: '400',
   subsets: ['latin'],
 })
@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactElement | React.ReactElement[]
 }>) {
   return (
-    <html lang='en' data-theme='dark' className={ibm.className}>
+    <html lang='en' data-theme='dark' className={mono.className}>
       <body>
         {children}
       </body>
