@@ -15,7 +15,7 @@ export default function Home() {
       gap: '20px',
     }}>
       <T type='h1' size='xs' weight='500'>@kaynora/ui</T>
-      <NavLink href='/docs/overview'><T>Go to docs</T></NavLink>
+      <NavLink href='/docs/overview' surface='text'><T>Go to docs</T></NavLink>
     </div>
   )
 }

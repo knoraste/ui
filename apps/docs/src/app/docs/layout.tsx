@@ -1,38 +1,60 @@
 'use client'
 
+import { usePathname } from 'next/navigation'
+
 import {
   Layout,
   T,
-  TypographyDefaultsProvider,
-  ButtonDefaultsProvider,
   Collapsible,
+  ButtonDefaultsProvider,
 } from '@kaynora/ui'
 
 import { NavLink } from '@/components/navlink'
+
+const SideBarLink = ({ children, href, pathname }: {
+  children: React.ReactNode
+  href: string
+  pathname: string
+}) => {
+  return (
+    <NavLink
+      surface={pathname === href ? 'fill' : 'hollow'}
+      href={href}
+      internal={{
+        root: {
+          style: { textAlign: 'left' }
+        }
+      }}
+    >
+      <T
+        color='dimmed'
+        size='s'
+      >
+        {children}
+      </T>
+    </NavLink>
+  )
+}
 
 export default function DocsLayout({
   children,
 }: Readonly<{
   children: React.ReactElement | React.ReactElement[]
 }>) {
+  const pn = usePathname()
+
   return (
     <Layout>
       <Layout.TopNav><T>TopNav</T></Layout.TopNav>
 
       <Layout.SideNav>
-        <TypographyDefaultsProvider
-          color='dimmed'
+        <ButtonDefaultsProvider
           size='s'
+          width='full'
         >
-          <ButtonDefaultsProvider
-            size='s'
-            surface='hollow'
-            width='full'
-          >
-            <NavLink surface='hollow' href='/docs/overview'><T>Overview</T></NavLink>
-            <NavLink surface='hollow' href='/docs/getting-started'><T>Getting started</T></NavLink>
-            <NavLink surface='hollow' href='/docs/accessibility'><T>Accessibility</T></NavLink>
-          </ButtonDefaultsProvider>
+          <SideBarLink pathname={pn} href='/docs/overview'>Overview</SideBarLink>
+          <SideBarLink pathname={pn} href='/docs/getting-started'>Getting started</SideBarLink>
+          <SideBarLink pathname={pn} href='/docs/accessibility'>Accessibility</SideBarLink>
 
           <Collapsible
             arrangement='leading'
@@ -46,29 +68,29 @@ export default function DocsLayout({
               label='Core'
               internal={{ typography: { size: 's' } as any }} // eslint-disable-line
             >
-              <NavLink surface='hollow' href='/docs/components/core/breadcrumbs'><T>Breadcrumbs</T></NavLink>
-              <NavLink surface='hollow' href='/docs/components/core/button'><T>Button</T></NavLink>
-              <NavLink surface='hollow' href='/docs/components/core/calendar'><T>Calendar</T></NavLink>
-              <NavLink surface='hollow' href='/docs/components/core/checkbox'><T>Checkbox</T></NavLink>
-              <NavLink surface='hollow' href='/docs/components/core/collapsible'><T>Collapsible</T></NavLink>
-              <NavLink surface='hollow' href='/docs/components/core/context-menu'><T>Context Menu</T></NavLink>
-              <NavLink surface='hollow' href='/docs/components/core/dropdown-menu'><T>Dropdown Menu</T></NavLink>
-              <NavLink surface='hollow' href='/docs/components/core/error-message'><T>Error Message</T></NavLink>
-              <NavLink surface='hollow' href='/docs/components/core/field'><T>Field</T></NavLink>
-              <NavLink surface='hollow' href='/docs/components/core/invisible'><T>Invisible</T></NavLink>
-              <NavLink surface='hollow' href='/docs/components/core/layout'><T>Layout</T></NavLink>
-              <NavLink surface='hollow' href='/docs/components/core/menu'><T>Menu</T></NavLink>
-              <NavLink surface='hollow' href='/docs/components/core/modal'><T>Modal</T></NavLink>
-              <NavLink surface='hollow' href='/docs/components/core/pagination'><T>Pagination</T></NavLink>
-              <NavLink surface='hollow' href='/docs/components/core/popover'><T>Popover</T></NavLink>
-              <NavLink surface='hollow' href='/docs/components/core/radio'><T>Radio</T></NavLink>
-              <NavLink surface='hollow' href='/docs/components/core/select'><T>Select</T></NavLink>
-              <NavLink surface='hollow' href='/docs/components/core/tabs'><T>Tabs</T></NavLink>
-              <NavLink surface='hollow' href='/docs/components/core/theme-provider'><T>Theme Provider</T></NavLink>
-              <NavLink surface='hollow' href='/docs/components/core/typography'><T>Typography</T></NavLink>
+              <SideBarLink pathname={pn} href='/docs/components/core/breadcrumbs'>Breadcrumbs</SideBarLink>
+              <SideBarLink pathname={pn} href='/docs/components/core/button'>Button</SideBarLink>
+              <SideBarLink pathname={pn} href='/docs/components/core/calendar'>Calendar</SideBarLink>
+              <SideBarLink pathname={pn} href='/docs/components/core/checkbox'>Checkbox</SideBarLink>
+              <SideBarLink pathname={pn} href='/docs/components/core/collapsible'>Collapsible</SideBarLink>
+              <SideBarLink pathname={pn} href='/docs/components/core/context-menu'>Context Menu</SideBarLink>
+              <SideBarLink pathname={pn} href='/docs/components/core/dropdown-menu'>Dropdown Menu</SideBarLink>
+              <SideBarLink pathname={pn} href='/docs/components/core/error-message'>Error Message</SideBarLink>
+              <SideBarLink pathname={pn} href='/docs/components/core/field'>Field</SideBarLink>
+              <SideBarLink pathname={pn} href='/docs/components/core/invisible'>Invisible</SideBarLink>
+              <SideBarLink pathname={pn} href='/docs/components/core/layout'>Layout</SideBarLink>
+              <SideBarLink pathname={pn} href='/docs/components/core/menu'>Menu</SideBarLink>
+              <SideBarLink pathname={pn} href='/docs/components/core/modal'>Modal</SideBarLink>
+              <SideBarLink pathname={pn} href='/docs/components/core/pagination'>Pagination</SideBarLink>
+              <SideBarLink pathname={pn} href='/docs/components/core/popover'>Popover</SideBarLink>
+              <SideBarLink pathname={pn} href='/docs/components/core/radio'>Radio</SideBarLink>
+              <SideBarLink pathname={pn} href='/docs/components/core/select'>Select</SideBarLink>
+              <SideBarLink pathname={pn} href='/docs/components/core/tabs'>Tabs</SideBarLink>
+              <SideBarLink pathname={pn} href='/docs/components/core/theme-provider'>Theme Provider</SideBarLink>
+              <SideBarLink pathname={pn} href='/docs/components/core/typography'>Typography</SideBarLink>
             </Collapsible>
           </Collapsible>
-        </TypographyDefaultsProvider>
+        </ButtonDefaultsProvider>
       </Layout.SideNav>
 
       <Layout.Content>

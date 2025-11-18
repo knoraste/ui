@@ -12,7 +12,7 @@ const NavLink: React.FC<NavLinkProps> = ({
   display='block',
   width='full',
   href,
-  surface='text',
+  surface,
   internal,
 }) => {
   return (
