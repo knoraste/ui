@@ -32,7 +32,7 @@ export default function () {
 
 ### Internal
 <P>
-Determines the props to override internal components with.
+The `internal` prop determines the props to override internal components with.
 </P>
 <InternalDisplay />
 ```jsx
@@ -67,10 +67,9 @@ export default function () {
     action: string | ((e: MouseEvent) => void)
   }[]`, `—`],
   ['internal', `{
+    root: HTMLDivElementProps
     button: ButtonProps
     typography: TypographyProps
-    root: HTMLAttributes<HTMLElement> &
-          {ref: Ref<HTMLElement>}
 }`, 'undefined'],
 ]} />
 

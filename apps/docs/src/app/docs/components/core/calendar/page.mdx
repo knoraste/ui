@@ -1,0 +1,105 @@
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+import {
+  CalendarDisplay,
+  TypesDisplay,
+  ControlledDisplay,
+} from './calendarDisplay'
+
+<Section>
+
+# Calendar
+<P>
+A date input component that allows users to select a date or a list of dates based on the 
+`type` prop values `'single'` and `'multiple'` respectively.
+</P>
+<CalendarDisplay />
+```jsx
+import { Calendar } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <Calendar />
+  )
+}
+```
+
+## Examples
+
+### Type
+<P>
+The `type` prop determines whether more than one value can be selected at a time.
+</P>
+<TypesDisplay />
+```jsx
+import { Calendar } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <div style={{
+      display: 'flex',
+      flexFlow: 'column',
+      gap: '80px',
+    }}>
+      <Calendar type='single' defaultValue={[new Date(2025, 0, 11)]} />
+      <Calendar
+        type='multiple'
+        defaultValue={[
+          new Date(2025, 0, 3),
+          new Date(2025, 0, 15),
+          new Date(2025, 0, 19),
+        ]}
+      />
+    </div>
+  )
+}
+```
+
+### Value
+<P>
+The `value` prop determines whether the component is controlled or uncontrolled. 
+When set, the `value` prop causes the component to become controlled. 
+Updates to the value can then be handled through the `onChange` prop.
+</P>
+<ControlledDisplay />
+```jsx
+import { Calendar } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <div style={{
+      display: 'flex',
+      flexFlow: 'column',
+      gap: '40px',
+    }}>
+      <Calendar value={date} onChange={setDate} />
+      <T>Today is: {date[0].toDateString()}</T>
+    </div>
+  )
+}
+```
+
+## API Reference
+
+### Root
+```jsx
+<Calendar />
+```
+
+<Reference rows={[
+  ['type', `'single' | 'multiple'`, `'single'`],
+  ['minValue', `Date`, `undefined`],
+  ['maxValue', `Date`, `undefined`],
+  ['value', `Date[]`, `undefined`],
+  ['defaultValue', `Date[]`, `[new Date()]`],
+  ['onChange', `(value: Date[]) => void`, `undefined`],
+  ['internal', `{
+    root: HTMLDivElementProps
+    date: HTMLDivElementProps
+    week: HTMLDivElementProps
+    days: HTMLDivElementProps
+}`, 'undefined'],
+]} />
+
+</Section>

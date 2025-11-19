@@ -34,8 +34,8 @@ export default function () {
 
 ### Action
 <P>
-Accepts either a `string` representing `href`, or a `function` representing `onClick`. 
-Based on value type, renders a native `<a>` or `<button>` respectively.
+The `action` prop accepts either a `string` representing `href`, or a `function` representing 
+`onClick`. Based on value type, renders a native `<a>` or `<button>` respectively.
 </P>
 <ActionsDisplay />
 ```jsx
@@ -65,7 +65,7 @@ export default function () {
 
 ### Surface
 <P>
-Determines the visual style of the button.
+The `surface` prop determines the visual style of the button.
 </P>
 <SurfacesDisplay />
 ```jsx
@@ -90,7 +90,7 @@ export default function () {
 
 ### Size
 <P>
-Determines the amount of padding on the button.
+The `size` prop determines the amount of padding on the button.
 </P>
 <SizesDisplay />
 ```jsx
@@ -114,7 +114,7 @@ export default function () {
 
 ### Width
 <P>
-Determines whether the button stretches to fit its container or shrinks 
+The `width` prop determines whether the button stretches to fit its container or shrinks 
 to fit its content.
 </P>
 <WidthsDisplay />
@@ -151,8 +151,7 @@ export default function () {
   ['width', `'auto' | 'full'`, 'undefined'],
   ['disabled', `boolean`, 'false'],
   ['internal', `{
-    root: HTMLAttributes<HTMLElement> &
-          {ref: Ref<HTMLElement>}
+    root: HTMLElementProps
 }`, 'undefined'],
 ]} />
 

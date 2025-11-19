@@ -18,7 +18,12 @@ export default function RootLayout({
   children: React.ReactElement | React.ReactElement[]
 }>) {
   return (
-    <html lang='en' data-theme='dark' className={mono.className}>
+    <html
+      lang='en'
+      data-theme='dark'
+      data-scroll-behavior='smooth'
+      className={mono.className}
+    >
       <body>
         {children}
       </body>
