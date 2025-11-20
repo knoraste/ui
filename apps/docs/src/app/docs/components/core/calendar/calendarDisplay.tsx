@@ -50,8 +50,21 @@ const ControlledDisplay = () => {
   )
 }
 
+const RangeDisplay = () => {
+  return (
+    <Display>
+      <Calendar
+        defaultValue={[new Date(2025, 0, 17)]}
+        minValue={new Date(2025, 0, 10)}
+        maxValue={new Date(2025, 0, 24)}
+      />
+    </Display>
+  )
+}
+
 export {
   CalendarDisplay,
   TypesDisplay,
   ControlledDisplay,
+  RangeDisplay,
 }
