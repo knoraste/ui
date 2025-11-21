@@ -7,6 +7,7 @@ import { Popover, type PopoverProps } from '../Popover'
 
 interface FlyoutProps {
   children: React.ReactElement | React.ReactElement[]
+  defaultOpen?: boolean
   isOpen?: boolean
   onOpenChange?: (isOpen: boolean) => void
   label: string
@@ -25,6 +26,7 @@ const FlyoutContext = createContext<true | undefined>(undefined)
 
 const Flyout: React.FC<FlyoutProps> = ({
   children,
+  defaultOpen=false,
   isOpen,
   onOpenChange,
   label,
@@ -33,7 +35,7 @@ const Flyout: React.FC<FlyoutProps> = ({
   disabled=false,
   internal,
 }) => {
-  const [internalIsOpen, setInternalIsOpen] = useState(false)
+  const [internalIsOpen, setInternalIsOpen] = useState(defaultOpen)
   const activeIsOpen = isOpen ?? internalIsOpen
 
   const triggerRef = useRef<HTMLDivElement>(null)

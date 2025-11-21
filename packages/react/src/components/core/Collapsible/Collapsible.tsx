@@ -7,6 +7,9 @@ import { useCollapseEffect } from '../../../hooks/useCollapseEffect'
 
 interface CollapsibleProps {
   children: React.ReactElement | React.ReactElement[]
+  defaultOpen?: boolean
+  isOpen?: boolean
+  onOpenChange?: (isOpen: boolean) => void
   label: string
   size?: 's' | 'm' | 'l'
   arrangement?: 'leading' | 'trailing'
@@ -20,36 +23,45 @@ interface CollapsibleProps {
 
 const Collapsible: React.FC<CollapsibleProps> = ({
   children,
+  defaultOpen=false,
+  isOpen,
+  onOpenChange,
   label,
   size='m',
   arrangement='trailing',
   internal,
 }) => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [internalIsOpen, setInternalIsOpen] = useState(defaultOpen)
   const contentRef = useRef<HTMLDivElement>(null)
+  const activeIsOpen = isOpen ?? internalIsOpen
 
-  useCollapseEffect(contentRef, isOpen, 500)
+  useCollapseEffect(contentRef, activeIsOpen, 500)
+
+  const updateIsOpen = (value: boolean) => {
+    if (isOpen === undefined) setInternalIsOpen(value)
+    onOpenChange?.(value)
+  } 
 
   useEffect(() => {
     if (contentRef.current) {
-      if (isOpen) {
-        contentRef.current.removeAttribute('inert');
+      if (activeIsOpen) {
+        contentRef.current.removeAttribute('inert')
       } else {
-        contentRef.current.setAttribute('inert', '');
+        contentRef.current.setAttribute('inert', '')
       }
     }
-  }, [isOpen])
+  }, [activeIsOpen])
 
   return (
     <div {...internal?.root}>
       <Button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => updateIsOpen(!activeIsOpen)}
         surface='hollow'
         width='full'
         size={size}
         internal={{
           root: {
-            "aria-expanded": isOpen
+            "aria-expanded": activeIsOpen
           }
         }}
         {...internal?.button}
@@ -66,7 +78,7 @@ const Collapsible: React.FC<CollapsibleProps> = ({
           >
             {label}
           </Typography>
-          <Arrow state={isOpen} />
+          <Arrow state={activeIsOpen} />
         </div>
       </Button>
 
@@ -74,9 +86,9 @@ const Collapsible: React.FC<CollapsibleProps> = ({
         ref={contentRef}
         className={`
           ${styles['content']} 
-          ${isOpen && styles['open']}
+          ${activeIsOpen && styles['open']}
         `}
-        aria-hidden={!isOpen}
+        aria-hidden={!activeIsOpen}
         {...internal?.content}
       >
         <ButtonDefaultsProvider
