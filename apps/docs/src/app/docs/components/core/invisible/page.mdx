@@ -1,0 +1,49 @@
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+import {
+  InvisibleDisplay,
+} from './invisibleDisplay'
+
+<Section>
+
+# Invisible
+<P>
+A utility component that visually hides content while keeping it accessible to screen readers.
+</P>
+<InvisibleDisplay />
+```jsx
+import { Invisible, T } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <Button>
+      <Invisible>See more</Invisible>
+      <Ellipsis />
+    </Button>
+  )
+}
+```
+
+## Examples
+
+<P>
+The Invisible component is useful for providing additional context to screen readers without cluttering the visual interface.
+It applies the common visually-hidden pattern that keeps content in the accessibility tree while hiding it visually.
+</P>
+
+## API Reference
+
+### Root
+```jsx
+<Invisible />
+```
+
+<Reference rows={[
+  ['children', `ReactNode`, `—`],
+  ['internal', `{
+    root: HTMLDivElementProps
+}`, 'undefined'],
+]} />
+
+</Section>

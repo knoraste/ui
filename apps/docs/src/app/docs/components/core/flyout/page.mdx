@@ -1,0 +1,104 @@
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+import {
+  FlyoutDisplay,
+  ArrangementDisplay,
+  ControlledDisplay,
+} from './flyoutDisplay'
+
+<Section>
+
+# Flyout
+<P>
+A container component that shows or hides content relative to a trigger button, supporting both vertical and horizontal arrangements.
+</P>
+<FlyoutDisplay />
+```jsx
+import { Flyout, Button, T } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <Flyout label='Options'>
+      <Button surface='hollow'><T>Edit</T></Button>
+      <Button surface='hollow'><T>Delete</T></Button>
+    </Flyout>
+  )
+}
+```
+
+## Examples
+
+### Arrangement
+<P>
+The `arrangement` prop determines the direction the content expands. Vertical is the default; horizontal is used in submenus.
+</P>
+<ArrangementDisplay />
+```jsx
+import { Flyout, Button, T } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <div style={{
+      display: 'flex',
+      gap: '40px',
+    }}>
+      <Flyout label='Vertical' arrangement='vertical'>
+        <Button surface='hollow'><T>Option 1</T></Button>
+        <Button surface='hollow'><T>Option 2</T></Button>
+      </Flyout>
+      <Flyout label='Horizontal' arrangement='horizontal'>
+        <Button surface='hollow'><T>Option 1</T></Button>
+        <Button surface='hollow'><T>Option 2</T></Button>
+      </Flyout>
+    </div>
+  )
+}
+```
+
+### Controlled
+<P>
+The `isOpen` and `onOpenChange` props allow controlling the flyout state from the parent component.
+</P>
+<ControlledDisplay />
+```jsx
+import { Flyout, Button, T } from '@kaynora/ui'
+import { useState } from 'react'
+
+export default function () {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <Flyout label='Menu' isOpen={isOpen} onOpenChange={setIsOpen}>
+      <Button surface='hollow'><T>Edit</T></Button>
+      <Button surface='hollow'><T>Delete</T></Button>
+    </Flyout>
+  )
+}
+```
+
+## API Reference
+
+### Root
+```jsx
+<Flyout />
+```
+
+<Reference rows={[
+  ['children', `ReactElement | ReactElement[]`, `—`],
+  ['label', `string`, `—`],
+  ['defaultOpen', `boolean`, `false`],
+  ['isOpen', `boolean`, `undefined`],
+  ['onOpenChange', `(isOpen: boolean) => void`, `undefined`],
+  ['size', `'s' | 'm' | 'l'`, `'m'`],
+  ['arrangement', `'vertical' | 'horizontal'`, `'vertical'`],
+  ['disabled', `boolean`, `false`],
+  ['internal', `{
+    root: HTMLDivElementProps
+    button: ButtonProps
+    typography: TypographyProps
+    popover: PopoverProps
+}`, 'undefined'],
+]} />
+
+</Section>

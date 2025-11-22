@@ -1,0 +1,89 @@
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+import {
+  DatePickerDisplay,
+  DisabledDisplay,
+  RangeDisplay,
+} from './datePickerDisplay'
+
+<Section>
+
+# Date Picker
+<P>
+A controlled input component that opens a calendar popover for selecting a single date.
+</P>
+<DatePickerDisplay />
+```jsx
+import { DatePicker } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <DatePicker label='Select date' />
+  )
+}
+```
+
+## Examples
+
+### Disabled
+<P>
+The `disabled` prop determines whether the input is interactive.
+</P>
+<DisabledDisplay />
+```jsx
+import { DatePicker } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <DatePicker label='Select date' disabled />
+  )
+}
+```
+
+### Range
+<P>
+The `minValue` and `maxValue` props determine the earliest and latest selectable dates.
+</P>
+<RangeDisplay />
+```jsx
+import { DatePicker } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <DatePicker
+      label='Select date'
+      minValue={new Date(2025, 0, 10)}
+      maxValue={new Date(2025, 0, 24)}
+      defaultValue={[new Date(2025, 0, 17)]}
+    />
+  )
+}
+```
+
+## API Reference
+
+### Root
+```jsx
+<DatePicker />
+```
+
+<Reference rows={[
+  ['label', `string`, `—`],
+  ['minValue', `Date`, `undefined`],
+  ['maxValue', `Date`, `undefined`],
+  ['value', `Date[]`, `undefined`],
+  ['defaultValue', `Date[]`, `undefined`],
+  ['onChange', `(value: Date[]) => void`, `undefined`],
+  ['disabled', `boolean`, `false`],
+  ['internal', `{
+    root: HTMLDivElementProps
+    trigger: HTMLDivElementProps
+    input: HTMLInputElementProps
+    typography: TypographyProps
+    popover: PopoverProps
+    calendar: CalendarProps
+}`, 'undefined'],
+]} />
+
+</Section>

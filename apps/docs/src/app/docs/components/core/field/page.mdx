@@ -1,0 +1,123 @@
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+import {
+  FieldDisplay,
+  TypesDisplay,
+  LimitDisplay,
+  ErrorDisplay,
+} from './fieldDisplay'
+
+<Section>
+
+# Field
+<P>
+A versatile input component supporting multiple types with built-in validation, character limits, and error handling.
+</P>
+<FieldDisplay />
+```jsx
+import { Field } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <Field label='Full name' />
+  )
+}
+```
+
+## Examples
+
+### Type
+<P>
+The `type` prop determines the input type. Supported types include text, textarea, number, email, and password.
+</P>
+<TypesDisplay />
+```jsx
+import { Field } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <div style={{
+      display: 'flex',
+      flexFlow: 'column',
+      gap: '15px',
+    }}>
+      <Field label='Email' type='email' />
+      <Field label='Password' type='password' />
+      <Field label='Age' type='number' />
+      <Field label='Message' type='textarea' height='8rem' />
+    </div>
+  )
+}
+```
+
+### Character limit
+<P>
+The `limit` prop sets a maximum character count with a counter displayed in the field.
+</P>
+<LimitDisplay />
+```jsx
+import { Field } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <Field label='Bio' type='textarea' limit={100} />
+  )
+}
+```
+
+### Error
+<P>
+The `errors` prop accepts an array of error objects with states and messages that display when conditions are met.
+</P>
+<ErrorDisplay />
+```jsx
+import { Field } from '@kaynora/ui'
+import { useState } from 'react'
+
+export default function () {
+  const [value, setValue] = useState('')
+
+  return (
+    <Field
+      label='Username'
+      value={value}
+      onChange={setValue}
+      errors={[
+        { failState: value.length < 3 && value.length > 0, message: 'Minimum 3 characters required' }
+      ]}
+    />
+  )
+}
+```
+
+## API Reference
+
+### Root
+```jsx
+<Field />
+```
+
+<Reference rows={[
+  ['label', `string`, `—`],
+  ['type', `'text' | 'textarea' | 'number' | 'email' | 'password'`, `'text'`],
+  ['name', `string`, `undefined`],
+  ['limit', `number`, `0`],
+  ['resizable', `boolean`, `false`],
+  ['height', `string`, `'6rem'`],
+  ['width', `string`, `'100%'`],
+  ['errors', `{ failState: boolean, message: string }[]`, `[]`],
+  ['value', `string`, `undefined`],
+  ['defaultValue', `string`, `''`],
+  ['onChange', `(value: string) => void`, `undefined`],
+  ['disabled', `boolean`, `false`],
+  ['internal', `{
+    root: HTMLDivElementProps
+    typography: TypographyProps
+    input: HTMLElementProps
+    counter: HTMLDivElementProps
+    errors: HTMLDivElementProps
+}`, 'undefined'],
+]} />
+
+</Section>

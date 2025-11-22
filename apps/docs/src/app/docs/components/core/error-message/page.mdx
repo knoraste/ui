@@ -1,0 +1,71 @@
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+import {
+  ErrorMessageDisplay,
+  StateDisplay,
+} from './errorMessageDisplay'
+
+<Section>
+
+# Error Message
+<P>
+A component that displays error messages with smooth animations and visibility control.
+</P>
+<ErrorMessageDisplay />
+```jsx
+import { ErrorMessage, T } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <ErrorMessage state={true}>
+      <T>This field is required</T>
+    </ErrorMessage>
+  )
+}
+```
+
+## Examples
+
+### State
+<P>
+The `state` prop determines whether the error message is visible. When true, the message is displayed and animated in; when false, it animates out.
+</P>
+<StateDisplay />
+```jsx
+import { ErrorMessage, T, Button } from '@kaynora/ui'
+import { useState } from 'react'
+
+export default function () {
+  const [hasError, setHasError] = useState(false)
+
+  return (
+    <>
+      <Button onClick={() => setHasError(!hasError)}>
+        <T>Toggle Error</T>
+      </Button>
+
+      <ErrorMessage state={hasError}>
+        <T>Please enter a valid email address</T>
+      </ErrorMessage>
+    </>
+  )
+}
+```
+
+## API Reference
+
+### Root
+```jsx
+<ErrorMessage />
+```
+
+<Reference rows={[
+  ['children', `ReactElement | ReactElement[]`, `—`],
+  ['state', `boolean`, `true`],
+  ['internal', `{
+    root: HTMLDivElementProps
+}`, 'undefined'],
+]} />
+
+</Section>

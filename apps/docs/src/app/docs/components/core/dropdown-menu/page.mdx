@@ -1,0 +1,119 @@
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+import {
+  DropdownMenuDisplay,
+  ArrangementDisplay,
+  DisabledDisplay,
+} from './dropdownMenuDisplay'
+
+<Section>
+
+# Dropdown Menu
+<P>
+A button that opens a menu of actions when clicked, with support for nested submenus.
+</P>
+<DropdownMenuDisplay />
+```jsx
+import { DropdownMenu } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <DropdownMenu
+      label='File'
+      items={[
+        { label: 'New' },
+        { label: 'Open' },
+        { label: 'Save' },
+      ]}
+    />
+  )
+}
+```
+
+## Examples
+
+### Arrangement
+<P>
+The `arrangement` prop determines the direction the menu expands relative to the trigger.
+</P>
+<ArrangementDisplay />
+```jsx
+import { DropdownMenu } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <div style={{
+      display: 'flex',
+      gap: '20px',
+    }}>
+      <DropdownMenu
+        label='Vertical'
+        arrangement='vertical'
+        items={[
+          { label: 'Edit' },
+          { label: 'Delete' },
+        ]}
+      />
+      <DropdownMenu
+        label='Horizontal'
+        arrangement='horizontal'
+        items={[
+          { label: 'Edit' },
+          { label: 'Delete' },
+        ]}
+      />
+    </div>
+  )
+}
+```
+
+### Disabled
+<P>
+The `disabled` prop determines whether the dropdown menu can be opened.
+</P>
+<DisabledDisplay />
+```jsx
+import { DropdownMenu } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <DropdownMenu
+      label='File'
+      disabled
+      items={[
+        { label: 'New' },
+        { label: 'Open' },
+      ]}
+    />
+  )
+}
+```
+
+## API Reference
+
+### Root
+```jsx
+<DropdownMenu />
+```
+
+<Reference rows={[
+  ['label', `string`, `—`],
+  ['items', `{
+    icon: ReactElement
+    label: string
+    items: ItemInterface[]
+    onClick: (e: MouseEvent) => void
+    href: string
+    disabled: boolean
+  }[]`, `—`],
+  ['arrangement', `'vertical' | 'horizontal'`, `'vertical'`],
+  ['size', `'s' | 'm' | 'l'`, `'m'`],
+  ['disabled', `boolean`, `false`],
+  ['internal', `{
+    root: HTMLDivElementProps
+    menu: MenuProps
+}`, 'undefined'],
+]} />
+
+</Section>

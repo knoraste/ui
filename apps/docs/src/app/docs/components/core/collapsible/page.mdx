@@ -1,0 +1,96 @@
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+import {
+  CollapsibleDisplay,
+  DefaultOpenDisplay,
+  ArrangementDisplay,
+} from './collapsibleDisplay'
+
+<Section>
+
+# Collapsible
+<P>
+A component that can be expanded or collapsed to show or hide content.
+</P>
+<CollapsibleDisplay />
+```jsx
+import { Collapsible, T } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <Collapsible label='Expand'>
+      <T>Collapsible content</T>
+    </Collapsible>
+  )
+}
+```
+
+## Examples
+
+### Default
+<P>
+The `defaultOpen` prop determines whether the collapsible is initially expanded or collapsed.
+</P>
+<DefaultOpenDisplay />
+```jsx
+import { Collapsible, T } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <Collapsible label='Settings' defaultOpen>
+      <T>Default open content</T>
+    </Collapsible>
+  )
+}
+```
+
+### Arrangement
+<P>
+The `arrangement` prop determines the position of the chevron relative to the trigger label.
+</P>
+<ArrangementDisplay />
+```jsx
+import { Collapsible, T } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <div style={{
+      display: 'flex',
+      flexFlow: 'column',
+      gap: '15px',
+    }}>
+      <Collapsible label='Leading' arrangement='leading'>
+        <T>Content</T>
+      </Collapsible>
+      <Collapsible label='Trailing' arrangement='trailing'>
+        <T>Content</T>
+      </Collapsible>
+    </div>
+  )
+}
+```
+
+## API Reference
+
+### Root
+```jsx
+<Collapsible />
+```
+
+<Reference rows={[
+  ['children', `ReactElement | ReactElement[]`, `—`],
+  ['label', `string | ReactElement`, `—`],
+  ['defaultOpen', `boolean`, `false`],
+  ['isOpen', `boolean`, `undefined`],
+  ['onOpenChange', `(isOpen: boolean) => void`, `undefined`],
+  ['arrangement', `'leading' | 'trailing'`, `'trailing'`],
+  ['size', `'s' | 'm' | 'l'`, `'m'`],
+  ['internal', `{
+    root: HTMLDivElementProps
+    button: ButtonProps
+    typography: TypographyProps
+}`, 'undefined'],
+]} />
+
+</Section>

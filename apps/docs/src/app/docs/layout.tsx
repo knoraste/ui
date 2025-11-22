@@ -79,6 +79,7 @@ export default function DocsLayout({
               <SideBarLink pathname={pn} href='/docs/components/core/checkbox'>Checkbox</SideBarLink>
               <SideBarLink pathname={pn} href='/docs/components/core/collapsible'>Collapsible</SideBarLink>
               <SideBarLink pathname={pn} href='/docs/components/core/context-menu'>Context Menu</SideBarLink>
+              <SideBarLink pathname={pn} href='/docs/components/core/date-picker'>Date Picker</SideBarLink>
               <SideBarLink pathname={pn} href='/docs/components/core/dropdown-menu'>Dropdown Menu</SideBarLink>
               <SideBarLink pathname={pn} href='/docs/components/core/error-message'>Error Message</SideBarLink>
               <SideBarLink pathname={pn} href='/docs/components/core/field'>Field</SideBarLink>
@@ -90,6 +91,7 @@ export default function DocsLayout({
               <SideBarLink pathname={pn} href='/docs/components/core/popover'>Popover</SideBarLink>
               <SideBarLink pathname={pn} href='/docs/components/core/radio'>Radio</SideBarLink>
               <SideBarLink pathname={pn} href='/docs/components/core/select'>Select</SideBarLink>
+              <SideBarLink pathname={pn} href='/docs/components/core/slider'>Slider</SideBarLink>
               <SideBarLink pathname={pn} href='/docs/components/core/tabs'>Tabs</SideBarLink>
               <SideBarLink pathname={pn} href='/docs/components/core/theme-provider'>Theme Provider</SideBarLink>
               <SideBarLink pathname={pn} href='/docs/components/core/typography'>Typography</SideBarLink>

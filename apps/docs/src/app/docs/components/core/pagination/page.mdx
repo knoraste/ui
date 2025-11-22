@@ -1,0 +1,93 @@
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+import {
+  PaginationDisplay,
+  SiblingsDisplay,
+  ControlledDisplay,
+} from './paginationDisplay'
+
+<Section>
+
+# Pagination
+<P>
+A navigation component that splits content across pages with smart ellipsis placement and controlled or uncontrolled state.
+</P>
+<PaginationDisplay />
+```jsx
+import { Pagination } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <Pagination count={10} />
+  )
+}
+```
+
+## Examples
+
+### Sibling count
+<P>
+The `siblingCount` prop controls how many page buttons appear on either side of the active page before ellipsis appears.
+</P>
+<SiblingsDisplay />
+```jsx
+import { Pagination } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <div style={{
+      display: 'flex',
+      flexFlow: 'column',
+      gap: '40px',
+    }}>
+      <Pagination count={10} siblingCount={1} />
+      <Pagination count={10} siblingCount={2} />
+    </div>
+  )
+}
+```
+
+### Controlled
+<P>
+The `value` and `onChange` props enable controlled state management for the current page.
+</P>
+<ControlledDisplay />
+```jsx
+import { Pagination, T } from '@kaynora/ui'
+import { useState } from 'react'
+
+export default function () {
+  const [page, setPage] = useState(1)
+
+  return (
+    <>
+      <Pagination count={10} value={page} onChange={setPage} />
+      <T>Current page: {page}</T>
+    </>
+  )
+}
+```
+
+## API Reference
+
+### Root
+```jsx
+<Pagination />
+```
+
+<Reference rows={[
+  ['count', `number`, `—`],
+  ['siblingCount', `number`, `1`],
+  ['value', `number`, `undefined`],
+  ['defaultValue', `number`, `1`],
+  ['onChange', `(value: number) => void`, `undefined`],
+  ['internal', `{
+    root: HTMLDivElementProps
+    typography: TypographyProps
+    previous: HTMLDivElementProps
+    next: HTMLDivElementProps
+}`, 'undefined'],
+]} />
+
+</Section>

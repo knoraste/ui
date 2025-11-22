@@ -28,7 +28,17 @@ const ActionsDisplay = () => {
       <Modal
         isOpen={isModalOpen}
         onOpenChange={() => setIsModalOpen(false)}
-      ><T>You're all caught up!</T></Modal>
+      >
+        <div style={{
+          padding: '40px',
+          backgroundColor: 'var(--background)',
+          borderRadius: 'var(--radius)',
+          textAlign: 'center',
+          minWidth: '300px',
+        }}>
+          <T>You're all caught up!</T>
+        </div>
+      </Modal>
 
       <Display>
         <div style={{
@@ -37,8 +47,8 @@ const ActionsDisplay = () => {
           alignItems: 'center',
           gap: '20px',
         }}>
-          <Button onClick={() => setIsModalOpen(true)}><T>See notifications</T></Button>
-          <Button href='#'><T>Scroll to top</T></Button>
+          <Button onClick={() => setIsModalOpen(true)}><T>See Notifications</T></Button>
+          <Button href='#'><T>Scroll to Top</T></Button>
         </div>
       </Display>
     </>

@@ -1,0 +1,125 @@
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+import {
+  RadioDisplay,
+  ArrangementDisplay,
+  ControlledDisplay,
+} from './radioDisplay'
+
+<Section>
+
+# Radio
+<P>
+A group of radio buttons allowing single selection from multiple options with full keyboard navigation.
+</P>
+<RadioDisplay />
+```jsx
+import { Radio, T } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <Radio name='radio' defaultValue='option2'>
+      <Radio.Item value='option1'><T>Option 1</T></Radio.Item>
+      <Radio.Item value='option2'><T>Option 2</T></Radio.Item>
+    </Radio>
+  )
+}
+```
+
+## Examples
+
+### Arrangement
+<P>
+The `arrangement` prop determines whether items are laid out vertically or horizontally.
+</P>
+<ArrangementDisplay />
+```jsx
+import { Radio, T } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <div style={{
+      display: 'flex',
+      flexFlow: 'column',
+      gap: '40px',
+    }}>
+      <Radio name='vertical' arrangement='vertical' defaultValue='a'>
+        <Radio.Item value='a'><T>Option A</T></Radio.Item>
+        <Radio.Item value='b'><T>Option B</T></Radio.Item>
+      </Radio>
+
+      <Radio name='horizontal' arrangement='horizontal' defaultValue='a'>
+        <Radio.Item value='a'><T>Option A</T></Radio.Item>
+        <Radio.Item value='b'><T>Option B</T></Radio.Item>
+      </Radio>
+    </div>
+  )
+}
+```
+
+### Controlled
+<P>
+The `value` and `onChange` props enable controlled state management.
+</P>
+<ControlledDisplay />
+```jsx
+import { Radio, T } from '@kaynora/ui'
+import { useState } from 'react'
+
+export default function () {
+  const [selected, setSelected] = useState('y')
+
+  return (
+    <div style={{
+      display: 'flex',
+      flexFlow: 'column',
+      gap: '20px',
+      alignItems: 'center',
+      width: '100%',
+    }}>
+      <Radio name='radioControlled' value={selected} onChange={setSelected}>
+        <Radio.Item value='x'><T>Option X</T></Radio.Item>
+        <Radio.Item value='y'><T>Option Y</T></Radio.Item>
+      </Radio>
+      <T>Selected: {selected}</T>
+    </div>
+  )
+}
+```
+
+## API Reference
+
+### Radio
+```jsx
+<Radio />
+```
+
+<Reference rows={[
+  ['children', `ReactElement<Radio.Item> | ReactElement<Radio.Item>[]`, `—`],
+  ['name', `string`, `—`],
+  ['arrangement', `'vertical' | 'horizontal'`, `'horizontal'`],
+  ['value', `string`, `undefined`],
+  ['defaultValue', `string`, `''`],
+  ['onChange', `(value: string) => void`, `undefined`],
+  ['internal', `{
+    root: HTMLDivElementProps
+}`, 'undefined'],
+]} />
+
+### Radio.Item
+```jsx
+<Radio.Item />
+```
+
+<Reference rows={[
+  ['children', `ReactElement | ReactElement[]`, `—`],
+  ['value', `string`, `—`],
+  ['disabled', `boolean`, `false`],
+  ['internal', `{
+    root: HTMLLabelElementProps
+    content: HTMLDivElementProps
+}`, 'undefined'],
+]} />
+
+</Section>

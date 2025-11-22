@@ -1,0 +1,74 @@
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+import {
+  ContextMenuDisplay,
+} from './contextMenuDisplay'
+
+<Section>
+
+# Context Menu
+<P>
+A menu that appears on right-click, displaying a list of actions relevant to the context.
+</P>
+<ContextMenuDisplay />
+```jsx
+import { ContextMenu } from '@kaynora/ui'
+import { useRef } from 'react'
+
+export default function () {
+  const targetRef = useRef<HTMLDivElement>(null)
+
+  return (
+    <>
+      <ContextMenu
+        target={targetRef}
+        items={[
+          { label: 'Edit' },
+          { label: 'Duplicate' },
+          { label: 'Delete' },
+        ]}
+      />
+
+      <div
+        ref={targetRef}
+        style={{
+          padding: '40px',
+          border: '1px dashed var(--gray-3)',
+          borderRadius: 'var(--radius)',
+          textAlign: 'center',
+          width: '200px',
+        }}
+      >
+        <T>Right-click here</T>
+      </div>
+    </>
+  )
+}
+```
+
+## API Reference
+
+### Root
+```jsx
+<ContextMenu />
+```
+
+<Reference rows={[
+  ['items', `{
+    icon: ReactElement
+    label: string
+    items: ItemInterface[]
+    onClick: (e: MouseEvent) => void
+    href: string
+    disabled: boolean
+  }[]`, `—`],
+  ['target', `React.RefObject<HTMLElement>`, `—`],
+  ['size', `'s' | 'm' | 'l'`, `'s'`],
+  ['internal', `{
+    root: HTMLDivElementProps
+    popover: PopoverProps
+}`, 'undefined'],
+]} />
+
+</Section>

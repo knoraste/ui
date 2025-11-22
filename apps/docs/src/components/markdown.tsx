@@ -67,6 +67,7 @@ const H3 = ({ children }: { children: string }) => {
             marginBottom: '10px',
             marginTop: '40px',
             display: 'block',
+            width: 'fit-content',
           },
         }
       }}

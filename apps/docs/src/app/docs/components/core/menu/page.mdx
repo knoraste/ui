@@ -1,0 +1,80 @@
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+import {
+  MenuDisplay,
+  SubmenuDisplay,
+} from './menuDisplay'
+
+<Section>
+
+# Menu
+<P>
+A flexible menu component supporting items with icons, nested submenus, and full keyboard navigation.
+</P>
+<MenuDisplay />
+```jsx
+import { Menu } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <Menu items={[
+      { label: 'Edit' },
+      { label: 'View' },
+      { label: 'Help' },
+    ]} />
+  )
+}
+```
+
+## Examples
+
+### Submenu
+<P>
+The `items` prop can include nested items to create submenus that expand horizontally.
+</P>
+<SubmenuDisplay />
+```jsx
+import { Menu } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <Menu items={[
+      { 
+        label: 'File',
+        items: [
+          { label: 'New' },
+          { label: 'Open' },
+          { label: 'Save' },
+        ]
+      },
+      { label: 'Edit' },
+    ]} />
+  )
+}
+```
+
+## API Reference
+
+### Root
+```jsx
+<Menu />
+```
+
+<Reference rows={[
+  ['items', `{
+    icon: ReactElement
+    label: string
+    items: ItemInterface[]
+    onClick: (e: MouseEvent) => void
+    href: string
+    disabled: boolean
+  }[]`, `—`],
+  ['size', `'s' | 'm' | 'l'`, `'s'`],
+  ['internal', `{
+    root: HTMLDivElementProps
+    typography: TypographyProps
+}`, 'undefined'],
+]} />
+
+</Section>

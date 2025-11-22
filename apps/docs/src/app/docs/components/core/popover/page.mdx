@@ -1,0 +1,115 @@
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+import {
+  PopoverDisplay,
+  ArrangementDisplay,
+} from './popoverDisplay'
+
+<Section>
+
+# Popover
+<P>
+A positioning component that displays content adjacent to a trigger element with intelligent boundary detection and arrangement options.
+</P>
+<PopoverDisplay />
+```jsx
+import { Popover, Button, T } from '@kaynora/ui'
+import { useState } from 'react'
+
+export default function () {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <div style={{
+      position: 'relative',
+    }}>
+      <Button onClick={() => setIsOpen(!isOpen)}>
+        <T>Toggle</T>
+      </Button>
+      <Popover isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <div style={{
+          padding: '40px',
+          width: '200px',
+          textAlign: 'center',
+        }}>
+          <T>Popover content</T>
+        </div>
+      </Popover>
+    </div>
+  )
+}
+```
+
+## Examples
+
+### Arrangement
+<P>
+The `arrangement` prop controls whether the popover extends vertically below or horizontally to the right of the trigger.
+</P>
+<ArrangementDisplay />
+```jsx
+import { Popover, Button, T } from '@kaynora/ui'
+import { useState } from 'react'
+
+export default function () {
+  const [isOpen1, setIsOpen1] = useState(false)
+  const [isOpen2, setIsOpen2] = useState(false)
+
+  return (
+    <div style={{
+      display: 'flex',
+      gap: '40px',
+    }}>
+      <div style={{ position: 'relative' }}>
+        <Button onClick={() => setIsOpen1(!isOpen1)}>
+          <T>Vertical</T>
+        </Button>
+        <Popover isOpen={isOpen1} onClose={() => setIsOpen1(false)} arrangement='vertical'>
+          <div style={{
+            padding: '40px',
+            width: '250px',
+            textAlign: 'center',
+          }}>
+            <T>Vertical popover</T>
+          </div>
+        </Popover>
+      </div>
+
+      <div style={{ position: 'relative' }}>
+        <Button onClick={() => setIsOpen2(!isOpen2)}>
+          <T>Horizontal</T>
+        </Button>
+        <Popover isOpen={isOpen2} onClose={() => setIsOpen2(false)} arrangement='horizontal'>
+          <div style={{
+            padding: '40px',
+            width: '250px',
+            textAlign: 'center',
+          }}>
+            <T>Horizontal popover</T>
+          </div>
+        </Popover>
+      </div>
+    </div>
+  )
+}
+```
+
+## API Reference
+
+### Root
+```jsx
+<Popover />
+```
+
+<Reference rows={[
+  ['children', `ReactElement | ReactElement[]`, `—`],
+  ['isOpen', `boolean`, `—`],
+  ['onClose', `(e: MouseEvent | KeyboardEvent) => void`, `undefined`],
+  ['arrangement', `'vertical' | 'horizontal'`, `'vertical'`],
+  ['internal', `{
+    root: HTMLDivElementProps
+}`, 'undefined'],
+]} />
+
+</Section>

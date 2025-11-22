@@ -1,0 +1,93 @@
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+
+<Section>
+
+# Layout
+<P>
+A compound component providing the structure for a responsive page layout with top navigation, collapsible sidebar, and main content area.
+</P>
+
+```jsx
+import { Layout, T } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <Layout>
+      <Layout.TopNav><T>Navigation</T></Layout.TopNav>
+      <Layout.SideNav><T>Sidebar</T></Layout.SideNav>
+      <Layout.Content>
+        <Layout.Section><T>Content</T></Layout.Section>
+      </Layout.Content>
+    </Layout>
+  )
+}
+```
+
+## API Reference
+
+### Root
+```jsx
+<Layout />
+```
+
+<Reference rows={[
+  ['children', `ReactElement | ReactElement[]`, `—`],
+  ['internal', `{
+    root: HTMLDivElementProps
+}`, 'undefined'],
+]} />
+
+### TopNav
+```jsx
+<Layout.TopNav />
+```
+
+<Reference rows={[
+  ['children', `ReactElement | ReactElement[]`, `—`],
+  ['internal', `{
+    root: HTMLDivElementProps
+    content: HTMLElementProps
+}`, 'undefined'],
+]} />
+
+### SideNav
+```jsx
+<Layout.SideNav />
+```
+
+<Reference rows={[
+  ['children', `ReactElement | ReactElement[]`, `—`],
+  ['internal', `{
+    root: HTMLDivElementProps
+    button: ButtonProps
+    content: HTMLElementProps
+}`, 'undefined'],
+]} />
+
+### Content
+```jsx
+<Layout.Content />
+```
+
+<Reference rows={[
+  ['children', `ReactElement | ReactElement[]`, `—`],
+  ['internal', `{
+    root: HTMLElementProps
+}`, 'undefined'],
+]} />
+
+### Section
+```jsx
+<Layout.Section />
+```
+
+<Reference rows={[
+  ['children', `ReactElement | ReactElement[]`, `—`],
+  ['internal', `{
+    root: HTMLElementProps
+}`, 'undefined'],
+]} />
+
+</Section>

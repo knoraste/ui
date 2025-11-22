@@ -1,0 +1,117 @@
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+import {
+  ModalDisplay,
+  NestedDisplay,
+} from './modalDisplay'
+
+<Section>
+
+# Modal
+<P>
+A dialog component that captures user attention with focus management, backdrop click handling, and nested modal support.
+</P>
+<ModalDisplay />
+```jsx
+import { Modal, Button, T } from '@kaynora/ui'
+import { useState } from 'react'
+
+export default function () {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <>
+      <Button onClick={() => setIsOpen(true)}>
+        <T>Open Modal</T>
+      </Button>
+
+      <Modal isOpen={isOpen} onOpenChange={setIsOpen}>
+        <div style={{
+          padding: '40px',
+          backgroundColor: 'var(--background)',
+          borderRadius: 'var(--radius)',
+          textAlign: 'center',
+          minWidth: '300px',
+        }}>
+          <T>Modal content goes here</T>
+        </div>
+      </Modal>
+    </>
+  )
+}
+```
+
+## Examples
+
+### Nested modal
+<P>
+Multiple modals can be stacked, with focus management handled automatically. Each modal will increase its z-index to appear above previous ones.
+</P>
+<NestedDisplay />
+```jsx
+import { Modal, Button, T } from '@kaynora/ui'
+import { useState } from 'react'
+
+export default function () {
+  const [isOpen1, setIsOpen1] = useState(false)
+  const [isOpen2, setIsOpen2] = useState(false)
+
+  return (
+    <>
+      <Button onClick={() => setIsOpen1(true)}>
+        <T>Open First Modal</T>
+      </Button>
+
+      <Modal isOpen={isOpen1} onOpenChange={setIsOpen1}>
+        <div style={{
+          padding: '40px',
+          backgroundColor: 'var(--background)',
+          borderRadius: 'var(--radius)',
+          display: 'flex',
+          flexFlow: 'column',
+          gap: '20px',
+          minWidth: '300px',
+        }}>
+          <T>First modal</T>
+          <Button onClick={() => setIsOpen2(true)}>
+            <T>Open Second Modal</T>
+          </Button>
+        </div>
+
+        <Modal isOpen={isOpen2} onOpenChange={setIsOpen2}>
+          <div style={{
+            padding: '40px',
+            backgroundColor: 'var(--background)',
+            borderRadius: 'var(--radius)',
+            textAlign: 'center',
+            minWidth: '300px',
+          }}>
+            <T>Second modal</T>
+          </div>
+        </Modal>
+      </Modal>
+    </>
+  )
+}
+```
+
+## API Reference
+
+### Root
+```jsx
+<Modal />
+```
+
+<Reference rows={[
+  ['children', `ReactElement | ReactElement[]`, `—`],
+  ['isOpen', `boolean`, `—`],
+  ['onOpenChange', `(isOpen: boolean) => void`, `—`],
+  ['internal', `{
+    root: HTMLDivElementProps
+    background: HTMLDivElementProps
+    content: HTMLDivElementProps
+}`, 'undefined'],
+]} />
+
+</Section>
