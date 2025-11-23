@@ -1,8 +1,8 @@
 import styles from './Field.module.css'
 import { useEffect, useState, useId } from 'react'
-import { Visibility } from '../../icons'
+import { Alert, Visibility } from '../../icons'
 import { Typography, type TypographyProps } from '../Typography'
-import { ErrorMessage } from '../ErrorMessage'
+import { Message } from '../Message'
 import { Button } from '../Button'
 
 interface ErrorInterface {
@@ -225,11 +225,16 @@ const Field: React.FC<FieldProps> = ({
         {
           allErrors?.map((error, index) => (
               <div key={index}>
-                <ErrorMessage state={error.failState}>
+                <Message
+                  surface='text'
+                  color='error'
+                  isVisible={error.failState}
+                >
+                  <Alert />
                   <Typography>
                     {error.message}
                   </Typography>
-                </ErrorMessage>
+                </Message>
               </div>
           ))
         }

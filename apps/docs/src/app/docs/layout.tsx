@@ -81,7 +81,7 @@ export default function DocsLayout({
               <SideBarLink pathname={pn} href='/docs/components/core/context-menu'>Context Menu</SideBarLink>
               <SideBarLink pathname={pn} href='/docs/components/core/date-picker'>Date Picker</SideBarLink>
               <SideBarLink pathname={pn} href='/docs/components/core/dropdown-menu'>Dropdown Menu</SideBarLink>
-              <SideBarLink pathname={pn} href='/docs/components/core/error-message'>Error Message</SideBarLink>
+              <SideBarLink pathname={pn} href='/docs/components/core/message'>Message</SideBarLink>
               <SideBarLink pathname={pn} href='/docs/components/core/field'>Field</SideBarLink>
               <SideBarLink pathname={pn} href='/docs/components/core/invisible'>Invisible</SideBarLink>
               <SideBarLink pathname={pn} href='/docs/components/core/layout'>Layout</SideBarLink>

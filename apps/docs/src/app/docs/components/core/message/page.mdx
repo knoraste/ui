@@ -1,0 +1,144 @@
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+import {
+  MessageDisplay,
+  StateDisplay,
+  ColorsDisplay,
+  SurfacesDisplay,
+} from './messageDisplay'
+
+<Section>
+
+# Message
+<P>
+A component that displays messages with smooth animations and visibility control.
+</P>
+<MessageDisplay />
+```jsx
+import { Message, T } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <Message>
+      <T>This field is required</T>
+    </Message>
+  )
+}
+```
+
+## Examples
+
+### Visibility
+<P>
+The `isVisible` prop determines whether the message is expanded and visible.
+</P>
+<StateDisplay />
+```jsx
+import { Message, T, Button } from '@kaynora/ui'
+import { useState } from 'react'
+
+export default function () {
+  const [hasMessage, setHasMessage] = useState(false)
+
+  return (
+    <div style={{
+      display: 'flex',
+      flexFlow: 'column',
+      gap: '20px',
+      width: '100%',
+    }}>
+      <Button onClick={() => setHasMessage(!hasMessage)} width='full'>
+        <T>Toggle Message</T>
+      </Button>
+
+      <Message isVisible={hasMessage}>
+        <T>Please enter a valid email address</T>
+      </Message>
+    </div>
+  )
+}
+```
+
+### Color
+<P>
+The `color` prop determines the color of the text, and if applicable, the border of the message.
+</P>
+<ColorsDisplay />
+```jsx
+import { Message, T } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <div style={{
+      width: '100%',
+      display: 'flex',
+      flexFlow: 'column',
+      gap: '10px',
+    }}>
+      <Message color='primary'>
+        <T>Primary color</T>
+      </Message>
+
+      <Message color='dimmed'>
+        <T>Dimmed color</T>
+      </Message>
+
+      <Message color='success'>
+        <T>Success color</T>
+      </Message>
+
+      <Message color='error'>
+        <T>Error color</T>
+      </Message>
+    </div>
+  )
+}
+```
+
+### Surface
+<P>
+The `surface` prop determines the visual style of the message.
+</P>
+<SurfacesDisplay />
+```jsx
+import { Message, T } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <div style={{
+      width: '100%',
+      display: 'flex',
+      flexFlow: 'column',
+      gap: '20px',
+    }}>
+      <Message surface='outline' color='error'>
+        <T>Outline surface</T>
+      </Message>
+
+      <Message surface='text' color='error'>
+        <T>Text surface</T>
+      </Message>
+    </div>
+  )
+}
+```
+
+## API Reference
+
+### Root
+```jsx
+<Message />
+```
+
+<Reference rows={[
+  ['children', `ReactElement | ReactElement[]`, `—`],
+  ['isVisible', `boolean`, `true`],
+  ['color', `'primary' | 'dimmed' | 'success' | 'error'`, `'primary'`],
+  ['surface', `'outline' | 'text'`, 'outline'],
+  ['internal', `{
+    root: HTMLDivElementProps
+}`, 'undefined'],
+]} />
+
+</Section>
