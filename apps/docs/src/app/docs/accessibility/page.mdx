@@ -4,7 +4,37 @@ export const metadata = {
 }
 
 import { Section } from '@/components/section'
+import { P } from '@/components/paragraph'
 
 <Section>
 # Accessibility
+
+## Built-in
+
+### Keyboard navgiation
+<P>
+Keyboard inputs are handled by @kaynora/ui with no additional work needed by the user. Complex components 
+respond to keyboard inputs as determined by intuitive, commonly implemented input patterns and by WAI-ARIA 
+example patterns.
+</P>
+
+### Focus management
+<P>
+The library manages the document active element through restoring focus to the trigger in case of components that 
+display content on activation of a trigger, and through focus trapping in the Modal component.
+</P>
+
+## Extensible
+
+### The visually hidden pattern
+<P>
+The [Invisible](/docs/components/core/invisible) component allows for adding visually hidden text to the document which is visible to assistive technologies. 
+This allows for adding accessible names and labels to elements that visually benefit from minimal textual description.
+</P>
+
+### The internal accessor prop
+<P>
+The `internal` prop can be used to directly modify role, aria-* and other relevant attributes where the library's 
+built-in accessible attributes and the Invisible component are not sufficient for describing an element to assistive technologies.
+</P>
 </Section>
