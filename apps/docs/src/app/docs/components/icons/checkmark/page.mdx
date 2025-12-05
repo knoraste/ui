@@ -1,0 +1,53 @@
+export const metadata = {
+  title: 'Checkmark - @kaynora/ui',
+  description: 'Small checkmark icon used to represent boolean states.',
+}
+
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+import { CheckmarkDisplay } from './checkmarkDisplay'
+
+<Section>
+
+# Checkmark
+<P>Small checkmark indicator used inside controls to represent boolean state.</P>
+<CheckmarkDisplay />
+
+```jsx
+import { Button, T, Checkmark } from '@kaynora/ui'
+import { useState } from 'react'
+
+export default function () {
+  const [state, setState] = useState(true)
+
+  return (
+    <div style={{
+      display: 'flex',
+      flexFlow: 'row nowrap',
+      gap: '16px',
+      alignItems: 'center',
+    }}>
+      <Checkmark state={state} />
+      <Button onClick={() => setState(!state)}>
+        <T>Toggle state</T>
+      </Button>
+    </div>
+  )
+}
+```
+
+## API Reference
+
+### Root
+```jsx
+<Checkmark />
+```
+
+<Reference rows={[
+  ['state', `boolean`, `false`],
+  ['color', `'primary' | 'dimmed' | 'inverted' | 'disabled' | 
+  'success' | 'error'`, `'dimmed'`],
+]} />
+
+</Section>

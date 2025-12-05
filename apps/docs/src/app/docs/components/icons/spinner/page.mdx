@@ -1,0 +1,54 @@
+export const metadata = {
+  title: 'Spinner - @kaynora/ui',
+  description: 'A small loading spinner used to indicate background activity.',
+}
+
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+import { SpinnerDisplay } from './spinnerDisplay'
+
+<Section>
+
+# Spinner
+<P>Used to indicate loading or asynchronous activity.</P>
+<SpinnerDisplay />
+
+```jsx
+import { Button, T, Spinner } from '@kaynora/ui'
+import { useState } from 'react'
+
+export default function () {
+  const [state, setState] = useState(true)
+
+  return (
+    <div style={{
+      display: 'flex',
+      flexFlow: 'row nowrap',
+      gap: '16px',
+      alignItems: 'center',
+    }}>
+      <Spinner state={state} />
+      <Button onClick={() => setState(!state)}>
+        <T>Toggle state</T>
+      </Button>
+    </div>
+  )
+}
+```
+
+## API Reference
+
+### Root
+```jsx
+<Spinner />
+```
+
+<Reference rows={[
+  ['state', `boolean`, `false`],
+  ['size', `'s' | 'm' | 'l'`, `'m'`],
+  ['color', `'primary' | 'dimmed' | 'inverted' | 'disabled' | 
+  'success' | 'error'`, `'dimmed'`],
+]} />
+
+</Section>

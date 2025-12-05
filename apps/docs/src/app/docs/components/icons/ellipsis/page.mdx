@@ -1,0 +1,37 @@
+export const metadata = {
+  title: 'Ellipsis - @kaynora/ui',
+  description: 'Ellipsis icon used for overflow menus and more actions.',
+}
+
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+import { EllipsisDisplay } from './ellipsisDisplay'
+
+<Section>
+
+# Ellipsis
+<P>Used to denote additional actions or overflow menus.</P>
+<EllipsisDisplay />
+
+```jsx
+import { Ellipsis } from '@kaynora/ui'
+
+export default function () {
+  return <Ellipsis />
+}
+```
+
+## API Reference
+
+### Root
+```jsx
+<Ellipsis />
+```
+
+<Reference rows={[
+  ['color', `'primary' | 'dimmed' | 'inverted' | 'disabled' | 
+  'success' | 'error'`, `'dimmed'`],
+]} />
+
+</Section>

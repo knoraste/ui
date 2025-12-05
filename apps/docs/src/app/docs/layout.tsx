@@ -132,6 +132,22 @@ export default function DocsLayout({
               <SideBarLink pathname={pn} href='/docs/components/core/theme-provider'>Theme Provider</SideBarLink>
               <SideBarLink pathname={pn} href='/docs/components/core/typography'>Typography</SideBarLink>
             </Collapsible>
+
+            <Collapsible
+              defaultOpen={pn.includes('/icons')}
+              arrangement='leading'
+              size='s'
+              label='Icons'
+              internal={{ typography: { size: 's' } as any }} // eslint-disable-line
+            >
+              <SideBarLink pathname={pn} href='/docs/components/icons/alert'>Alert</SideBarLink>
+              <SideBarLink pathname={pn} href='/docs/components/icons/arrow'>Arrow</SideBarLink>
+              <SideBarLink pathname={pn} href='/docs/components/icons/burger'>Burger</SideBarLink>
+              <SideBarLink pathname={pn} href='/docs/components/icons/checkmark'>Checkmark</SideBarLink>
+              <SideBarLink pathname={pn} href='/docs/components/icons/ellipsis'>Ellipsis</SideBarLink>
+              <SideBarLink pathname={pn} href='/docs/components/icons/spinner'>Spinner</SideBarLink>
+              <SideBarLink pathname={pn} href='/docs/components/icons/visibility'>Visibility</SideBarLink>
+            </Collapsible>
           </Collapsible>
         </ButtonDefaultsProvider>
       </Layout.SideNav>

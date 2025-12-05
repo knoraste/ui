@@ -1,0 +1,52 @@
+export const metadata = {
+  title: 'Visibility - @kaynora/ui',
+  description: 'Icon used to represent visibility / show-hide toggles.',
+}
+
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { VisibilityDisplay } from './visibilityDisplay'
+import { P } from '@/components/paragraph'
+
+<Section>
+
+# Visibility
+<P>Used for show/hide actions (e.g. password visibility toggles).</P>
+<VisibilityDisplay />
+
+```jsx
+import { Button, T, Visibility } from '@kaynora/ui'
+import { useState } from 'react'
+
+export default function () {
+  const [state, setState] = useState(false)
+
+  return (
+    <div style={{
+      display: 'flex',
+      flexFlow: 'row nowrap',
+      gap: '16px',
+      alignItems: 'center',
+    }}>
+      <Visibility state={state} />
+      <Button onClick={() => setState(!state)}>
+        <T>Toggle state</T>
+      </Button>
+    </div>
+  )
+}
+```
+## API Reference
+
+### Root
+```jsx
+<Visibility />
+```
+
+<Reference rows={[
+  ['state', `boolean`, `—`],
+  ['color', `'primary' | 'dimmed' | 'inverted' | 'disabled' | 
+  'success' | 'error'`, `'dimmed'`],
+]} />
+
+</Section>

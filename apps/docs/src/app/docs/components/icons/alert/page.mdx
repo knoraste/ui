@@ -1,0 +1,37 @@
+export const metadata = {
+  title: 'Alert - @kaynora/ui',
+  description: 'Icon used to indicate warnings or important statuses.',
+}
+
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+import { AlertDisplay } from './alertDisplay'
+
+<Section>
+
+# Alert
+<P>Used to visually mark warnings or important messages.</P>
+<AlertDisplay />
+
+```jsx
+import { Alert } from '@kaynora/ui'
+
+export default function () {
+  return <Alert />
+}
+```
+
+## API Reference
+
+### Root
+```jsx
+<Alert />
+```
+
+<Reference rows={[
+  ['color', `'primary' | 'dimmed' | 'inverted' | 'disabled' | 
+  'success' | 'error'`, `'error'`],
+]} />
+
+</Section>

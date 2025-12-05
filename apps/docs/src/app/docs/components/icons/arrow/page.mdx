@@ -1,0 +1,53 @@
+export const metadata = {
+  title: 'Arrow - @kaynora/ui',
+  description: 'Small arrow icon used for expand/collapse and navigation affordances.',
+}
+
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+import { ArrowDisplay } from './arrowDisplay'
+
+<Section>
+
+# Arrow
+<P>Used to indicate expand/collapse direction or simple navigation cues.</P>
+<ArrowDisplay />
+
+```jsx
+import { Button, T, Arrow } from '@kaynora/ui'
+import { useState } from 'react'
+
+export default function () {
+  const [state, setState] = useState(false)
+
+  return (
+    <div style={{
+      display: 'flex',
+      flexFlow: 'row nowrap',
+      gap: '16px',
+      alignItems: 'center',
+    }}>
+      <Arrow state={state} />
+      <Button onClick={() => setState(!state)}>
+        <T>Toggle state</T>
+      </Button>
+    </div>
+  )
+}
+```
+
+## API Reference
+
+### Root
+```jsx
+<Arrow />
+```
+
+<Reference rows={[
+  ['state', `boolean`, `false`],
+  ['color', `'primary' | 'dimmed' | 'inverted' | 'disabled' | 
+  'success' | 'error'`, `'dimmed'`],
+]} />
+
+</Section>

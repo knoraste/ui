@@ -1,0 +1,37 @@
+export const metadata = {
+  title: 'Burger - @kaynora/ui',
+  description: 'Hamburger menu icon used as a menu toggle.',
+}
+
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+import { BurgerDisplay } from './burgerDisplay'
+
+<Section>
+
+# Burger
+<P>Hamburger icon used to represent menu toggles.</P>
+<BurgerDisplay />
+
+```jsx
+import { Burger } from '@kaynora/ui'
+
+export default function () {
+  return <Burger />
+}
+```
+
+## API Reference
+
+### Root
+```jsx
+<Burger />
+```
+
+<Reference rows={[
+  ['color', `'primary' | 'dimmed' | 'inverted' | 'disabled' | 
+  'success' | 'error'`, `'dimmed'`],
+]} />
+
+</Section>
